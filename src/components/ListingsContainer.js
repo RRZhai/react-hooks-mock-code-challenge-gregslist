@@ -1,11 +1,13 @@
 import React from "react";
-// import ListingCard from "./ListingCard";
+import ListingCard from "./ListingCard";
+import Form from './Form'
 
-function ListingsContainer() {
+function ListingsContainer({listings, handleDelete, handleSubmitForm}) {
   return (
     <main>
+      <Form handleSubmitForm={handleSubmitForm} />
       <ul className="cards">
-        {/* use the ListingCard component to display listings */}
+        {listings.map(listing => <ListingCard key={listing.id} listing={listing} handleDelete={handleDelete} />)}
       </ul>
     </main>
   );
